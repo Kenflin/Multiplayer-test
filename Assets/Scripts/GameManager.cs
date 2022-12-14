@@ -41,10 +41,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         Debug.Log("conectada a la sala " + PhotonNetwork.CurrentRoom.Name);
         Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount);
         Debug.Log(PhotonNetwork.CurrentRoom.Players);
-        if (PhotonNetwork.IsMasterClient) 
-        PhotonNetwork.InstantiateRoomObject("Player", new Vector3(-6.784447f, -1.89f, -0.1105546f), Quaternion.identity);
-        else PhotonNetwork.InstantiateRoomObject("Player", new Vector3(-6.784447f, -1.89f, -0.1105546f), Quaternion.identity);
-
+        PhotonNetwork.Instantiate("Player", new Vector3(-6.784447f + PhotonNetwork.CurrentRoom.PlayerCount, -1.89f, -0.1105546f), Quaternion.identity);
 
     }
 }

@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         
-        if (acceptInput && PhotonNetwork.IsMasterClient)
+        if (acceptInput && myPhotonView.IsMine)
         {
             // Horizontal movement
             inputX = Input.GetAxis("Horizontal");
